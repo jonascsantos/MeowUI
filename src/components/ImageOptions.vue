@@ -10,36 +10,92 @@ import { ref } from 'vue'
 const receivedSize = ref({ value: '', label: 'Random' })
 const receivedFilter = ref({ value: '', label: 'None' })
 
+const typeQuery = ref(new URLSearchParams())
+
+const emit = defineEmits(['update:searchParams'])
+
 const handleSendSizeToHigherComponent = (Size) => {
   if (Size.value === 'Custom') {
     receivedSize.value.label = `${Size.width ? Size.width : 'Random'} x ${Size.height ? Size.height : 'Random'}`
     receivedSize.value.value = Size.value
+
+    if (Size.width) {
+      typeQuery.value.set('width', Size.width)
+    }
+
+    if (Size.height) {
+      typeQuery.value.set('height', Size.height)
+    }
   } else {
     receivedSize.value.value = Size.value
     receivedSize.value.label = Size.value
   }
+
+  returnURL()
 }
 
 const handleSendFilterToHigherComponent = (Filter) => {
   switch (Filter.value) {
     case 'Blur':
-      receivedFilter.value.label = `Blur: ${Filter.blur ?? 0}`
-      receivedFilter.value.value = Filter.blur ?? 0
+      receivedFilter.value.label = `blur=${Filter.blur ?? 0}`
       break
     case 'Pixel':
-      receivedFilter.value.label = `Pixel: ${Filter.pixel ?? 0}`
-      receivedFilter.value.value = Filter.pixel ?? 0
+      receivedFilter.value.label = `pixel=${Filter.pixel ?? 0}`
       break
     case 'Paint':
-      console.log(Filter)
-      receivedFilter.value.label = `Red: ${Filter.red || 0}, Green: ${Filter.green || 0}, Blue: ${Filter.blue || 0}`
-      receivedFilter.value.value = `${Filter.red ?? 0},${Filter.green ?? 0},${Filter.blue ?? 0}`
+      receivedFilter.value.label = `r=${Filter.red || 0}&g=${Filter.green || 0}&b=${Filter.blue || 0}`
       break
     default:
       receivedFilter.value.label = Filter.value
-      receivedFilter.value.value = Filter.value
       break
   }
+
+  receivedFilter.value.value = Filter.value
+
+  returnURL()
+}
+
+const returnURL = () => {
+  let params = new URLSearchParams()
+
+  const size = receivedSize.value.value.toLowerCase()
+  const filter = receivedFilter.value.value.toLowerCase()
+
+  let filterLabel = receivedFilter.value.label.toLowerCase()
+
+  if (size !== 'random') {
+    params.set('type', size)
+  } else {
+    params.delete('type')
+  }
+
+  if (filter) {
+    params.set('filter', filter)
+  }
+
+  if (params.has('type', 'custom')) {
+    params.delete('type')
+
+    if (typeQuery.value.size) {
+      params = new URLSearchParams({
+        ...Object.fromEntries(params),
+        ...Object.fromEntries(typeQuery.value)
+      })
+    }
+  }
+
+  if (
+    filterLabel === 'mono' ||
+    filterLabel === 'sepia' ||
+    filterLabel === 'negative' ||
+    filterLabel === 'none'
+  ) {
+    filterLabel = ''
+  } else {
+    filterLabel = '&' + filterLabel
+  }
+
+  emit('update:searchParams', params.toString() + filterLabel)
 }
 </script>
 

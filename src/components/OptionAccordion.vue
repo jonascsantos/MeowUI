@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 
-const isOpen = ref(false)
+const isOpen = ref(true)
 
 const toggle = () => {
   isOpen.value = !isOpen.value

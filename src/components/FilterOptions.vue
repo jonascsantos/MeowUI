@@ -173,7 +173,9 @@ const clearInputs = () => {
       </template>
       Pixel
     </OptionButton>
+  </div>
 
+  <div>
     <div v-if="showBlurInput" class="flex gap-4 max-w-[100px]">
       <div class="w-50">
         <label for="Blur" class="block text-sm leading-6 text-gray-900 font-bold">Blur</label>

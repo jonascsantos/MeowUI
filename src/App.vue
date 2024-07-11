@@ -4,11 +4,13 @@ import NavigationBar from './components/NavigationBar.vue'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <NavigationBar />
-    </div>
-  </header>
+  <div class="2xl:px-16 max-w-[2200px] m-auto">
+    <header>
+      <div class="wrapper">
+        <NavigationBar />
+      </div>
+    </header>
 
-  <RouterView />
+    <RouterView />
+  </div>
 </template>

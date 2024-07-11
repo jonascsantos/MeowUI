@@ -8,10 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    class="rounded-full text-white text-lg bg-fuchsia-700 flex flex-col p-4 items-center"
-    @click="onClick"
-  >
+  <div class="rounded-full text-lg flex flex-col p-4 items-center" @click="onClick">
     <div class="font-medium">
       <slot></slot>
     </div>
