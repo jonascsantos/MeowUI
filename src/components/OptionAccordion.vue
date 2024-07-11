@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { ref } from 'vue'
+
+import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 
 const isOpen = ref(false)
 

@@ -1,25 +1,23 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import { ChevronDownIcon } from '@heroicons/vue/24/solid'
-
 const props = defineProps({
   value: {
     type: String,
     required: true
   },
-  selectedFilter: {
+  selectedOption: {
     type: String,
     required: true
   }
 })
 
-const isSelected = computed(() => props.selectedFilter === props.value)
+const isSelected = computed(() => props.selectedOption === props.value)
 
-const emit = defineEmits(['update:selectedFilter'])
+const emit = defineEmits(['update:selectedOption'])
 
 const selectFilter = () => {
-  emit('update:selectedFilter', props.value)
+  emit('update:selectedOption', props.value)
 }
 </script>
 

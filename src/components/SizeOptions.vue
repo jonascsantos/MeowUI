@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import OptionButton from './OptionButton.vue'
-import { ArrowsPointingOutIcon } from '@heroicons/vue/24/solid'
-import { PaintBrushIcon } from '@heroicons/vue/24/solid'
-import IconCat from './icons/IconCat.vue'
-
 import { ref } from 'vue'
 
-const selectedFilter = ref('Random')
+import OptionButton from './OptionButton.vue'
+import IconCat from './icons/IconCat.vue'
 
-const emit = defineEmits(['update:selectedFilter', 'sendToHigherComponent'])
+const selectedOption = ref('Random')
 
-const updateSelectedFilter = (value) => {
-  selectedFilter.value = value
-  emit('sendToHigherComponent', value)
+const emit = defineEmits(['update:selectedOption', 'sendSizeToHigherComponent'])
+
+const updateSelectedSize = (value) => {
+  selectedOption.value = value
+  emit('sendSizeToHigherComponent', value)
 }
 </script>
 
@@ -20,8 +18,8 @@ const updateSelectedFilter = (value) => {
   <div class="flex flex-wrap gap-4 py-5">
     <OptionButton
       value="Random"
-      :selectedFilter="selectedFilter"
-      @update:selectedFilter="updateSelectedFilter"
+      :selectedOption="selectedOption"
+      @update:selectedOption="updateSelectedSize"
     >
       <template #image>
         <div
@@ -38,8 +36,8 @@ const updateSelectedFilter = (value) => {
 
     <OptionButton
       value="Small"
-      :selectedFilter="selectedFilter"
-      @update:selectedFilter="updateSelectedFilter"
+      :selectedOption="selectedOption"
+      @update:selectedOption="updateSelectedSize"
     >
       <template #image>
         <div class="flex items-center justify-center w-[30px] h-[40px] border-[5px] border-inherit">
@@ -53,8 +51,8 @@ const updateSelectedFilter = (value) => {
 
     <OptionButton
       value="Medium"
-      :selectedFilter="selectedFilter"
-      @update:selectedFilter="updateSelectedFilter"
+      :selectedOption="selectedOption"
+      @update:selectedOption="updateSelectedSize"
     >
       <template #image>
         <div
@@ -70,8 +68,8 @@ const updateSelectedFilter = (value) => {
 
     <OptionButton
       value="Square"
-      :selectedFilter="selectedFilter"
-      @update:selectedFilter="updateSelectedFilter"
+      :selectedOption="selectedOption"
+      @update:selectedOption="updateSelectedSize"
     >
       <template #image>
         <div
@@ -87,8 +85,8 @@ const updateSelectedFilter = (value) => {
 
     <OptionButton
       value="Custom"
-      :selectedFilter="selectedFilter"
-      @update:selectedFilter="updateSelectedFilter"
+      :selectedOption="selectedOption"
+      @update:selectedOption="updateSelectedSize"
     >
       <template #image>
         <div

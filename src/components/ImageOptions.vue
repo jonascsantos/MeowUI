@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import OptionAccordion from './OptionAccordion.vue'
 import SizeOptions from './SizeOptions.vue'
-import { ArrowsPointingOutIcon } from '@heroicons/vue/24/solid'
-import { PaintBrushIcon } from '@heroicons/vue/24/solid'
+import FilterOptions from './FilterOptions.vue'
+
+import { ArrowsPointingOutIcon, PaintBrushIcon } from '@heroicons/vue/24/solid'
 
 import { ref } from 'vue'
 
-const receivedFilter = ref('Random')
+const receivedSize = ref('Random')
+const receivedFilter = ref('None')
 
-const handleSendToHigherComponent = (filter) => {
-  receivedFilter.value = filter
+const handleSendSizeToHigherComponent = (Size) => {
+  receivedSize.value = Size
+}
+
+const handleSendFilterToHigherComponent = (Filter) => {
+  receivedFilter.value = Filter
 }
 </script>
 
@@ -20,11 +26,11 @@ const handleSendToHigherComponent = (filter) => {
     </template>
     <template #heading>
       <h3 class="font-bold">
-        Size: <span class="font-bold text-fuchsia-700">{{ receivedFilter }}</span>
+        Size: <span class="font-bold text-fuchsia-700">{{ receivedSize }}</span>
       </h3>
     </template>
 
-    <SizeOptions @sendToHigherComponent="handleSendToHigherComponent" />
+    <SizeOptions @sendSizeToHigherComponent="handleSendSizeToHigherComponent" />
   </OptionAccordion>
 
   <OptionAccordion>
@@ -32,9 +38,11 @@ const handleSendToHigherComponent = (filter) => {
       <PaintBrushIcon class="size-6 text-gray-900" />
     </template>
     <template #heading>
-      <h3 class="font-bold">Filter: <span class="font-bold text-fuchsia-700">None</span></h3>
+      <h3 class="font-bold">
+        Filter: <span class="font-bold text-fuchsia-700">{{ receivedFilter }}</span>
+      </h3>
     </template>
 
-    Content
+    <FilterOptions @sendFilterToHigherComponent="handleSendFilterToHigherComponent" />
   </OptionAccordion>
 </template>
