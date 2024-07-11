@@ -34,7 +34,7 @@ const toggle = () => {
       </i>
     </div>
 
-    <div :class="{ 'h-[26rem]': isOpen }" class="content h-0 transition-height">
+    <div :class="{ 'max-h-[40rem]': isOpen }" class="content max-h-0 h-max transition-maxHeight">
       <slot></slot>
     </div>
   </div>

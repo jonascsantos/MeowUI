@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
   <div
-    class="border-4 w-[100px] h-[120px] rounded-lg flex flex-col p-4 gap-2.5 items-center"
+    class="rounded-full text-white text-lg bg-fuchsia-700 flex flex-col p-4 items-center"
     @click="onClick"
   >
     <div class="font-medium">

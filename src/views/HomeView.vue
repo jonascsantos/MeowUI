@@ -8,13 +8,13 @@ const onClick = () => {
 </script>
 
 <template>
-  <main class="text-gray-900 grid gap-4">
+  <main class="text-gray-900 flex grid gap-6">
     <div class="px-4">
       <h2 class="text-base py-4">Fetch random cat images from <b>cataas.com</b></h2>
       <ImageOptions />
 
-      <div>
-        <BaseButton :onClick="onClick">Fetch from API</BaseButton>
+      <div class="sticky bottom-0 py-4">
+        <BaseButton :onClick="onClick">Fetch from API 🐈</BaseButton>
       </div>
     </div>
   </main>
