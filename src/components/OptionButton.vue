@@ -5,21 +5,21 @@ import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 
 const props = defineProps({
   value: {
-    type: [String, Number],
+    type: String,
     required: true
   },
-  modelValue: {
-    type: [String, Number],
+  selectedFilter: {
+    type: String,
     required: true
   }
 })
 
-const emit = defineEmits(['update:modelValue'])
+const isSelected = computed(() => props.selectedFilter === props.value)
 
-const isSelected = computed(() => props.modelValue === props.value)
+const emit = defineEmits(['update:selectedFilter'])
 
-const select = () => {
-  emit('update:modelValue', props.value)
+const selectFilter = () => {
+  emit('update:selectedFilter', props.value)
 }
 </script>
 
@@ -27,7 +27,7 @@ const select = () => {
   <div
     :class="[isSelected ? 'border-fuchsia-700 bg-fuchsia-50' : 'border-gray-300']"
     class="border-4 w-[100px] h-[120px] rounded-lg flex flex-col p-4 gap-2.5 items-center"
-    @click="select"
+    @click="selectFilter"
   >
     <div class="font-medium" :class="[isSelected ? 'text-fuchsia-700' : 'text-gray-400']">
       <slot></slot>

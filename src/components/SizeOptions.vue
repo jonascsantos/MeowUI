@@ -6,16 +6,23 @@ import IconCat from './icons/IconCat.vue'
 
 import { ref } from 'vue'
 
-const selectedFilter = ref('')
+const selectedFilter = ref('Random')
+
+const emit = defineEmits(['update:selectedFilter', 'sendToHigherComponent'])
 
 const updateSelectedFilter = (value) => {
   selectedFilter.value = value
+  emit('sendToHigherComponent', value)
 }
 </script>
 
 <template>
   <div class="flex flex-wrap gap-4 py-5">
-    <OptionButton :value="1" :modelValue="selectedFilter" @update:modelValue="updateSelectedFilter">
+    <OptionButton
+      value="Random"
+      :selectedFilter="selectedFilter"
+      @update:selectedFilter="updateSelectedFilter"
+    >
       <template #image>
         <div
           class="flex items-center justify-center p-2.5 w-[64px] h-[50px] border-[5px] border-inherit"
@@ -29,7 +36,11 @@ const updateSelectedFilter = (value) => {
       Random
     </OptionButton>
 
-    <OptionButton :value="2" :modelValue="selectedFilter" @update:modelValue="updateSelectedFilter">
+    <OptionButton
+      value="Small"
+      :selectedFilter="selectedFilter"
+      @update:selectedFilter="updateSelectedFilter"
+    >
       <template #image>
         <div class="flex items-center justify-center w-[30px] h-[40px] border-[5px] border-inherit">
           <div class="w-4 h-10">
@@ -40,10 +51,16 @@ const updateSelectedFilter = (value) => {
       Small
     </OptionButton>
 
-    <OptionButton :value="3" :modelValue="selectedFilter" @update:modelValue="updateSelectedFilter">
+    <OptionButton
+      value="Medium"
+      :selectedFilter="selectedFilter"
+      @update:selectedFilter="updateSelectedFilter"
+    >
       <template #image>
-        <div class="flex items-center justify-center w-[30px] h-[40px] border-[5px] border-inherit">
-          <div class="w-4 h-10">
+        <div
+          class="flex items-center justify-center w-[40px] h-[50px] border-[5px] p-1 border-inherit"
+        >
+          <div class="w-6 h-12">
             <IconCat alt="Cat" class="text-inherit" />
           </div>
         </div>
@@ -51,10 +68,16 @@ const updateSelectedFilter = (value) => {
       Medium
     </OptionButton>
 
-    <OptionButton :value="4" :modelValue="selectedFilter" @update:modelValue="updateSelectedFilter">
+    <OptionButton
+      value="Square"
+      :selectedFilter="selectedFilter"
+      @update:selectedFilter="updateSelectedFilter"
+    >
       <template #image>
-        <div class="flex items-center justify-center w-[30px] h-[40px] border-[5px] border-inherit">
-          <div class="w-4 h-10">
+        <div
+          class="flex items-center justify-center w-[50px] h-[50px] border-[5px] p-2.5 border-inherit"
+        >
+          <div class="w-6 h-10">
             <IconCat alt="Cat" class="text-inherit" />
           </div>
         </div>
@@ -62,9 +85,15 @@ const updateSelectedFilter = (value) => {
       Square
     </OptionButton>
 
-    <OptionButton :value="5" :modelValue="selectedFilter" @update:modelValue="updateSelectedFilter">
+    <OptionButton
+      value="Custom"
+      :selectedFilter="selectedFilter"
+      @update:selectedFilter="updateSelectedFilter"
+    >
       <template #image>
-        <div class="flex items-center justify-center w-[30px] h-[40px] border-[5px] border-inherit">
+        <div
+          class="flex items-center justify-center p-1 w-[64px] h-[40px] border-[5px] border-inherit"
+        >
           <div class="w-4 h-10">
             <IconCat alt="Cat" class="text-inherit" />
           </div>
