@@ -1,61 +1,66 @@
 # MeowUI
 
-This template should help get you started developing with Vue 3 in Vite.
+<img src="https://meow.jonascsantos.com/meow.gif" alt="MeowGif" width="200" height="200"/>
 
-## Recommended IDE Setup
+Fetch images from CATAAS through a UI
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+MeowUI App | [https://meow.jonascsantos.com/](https://meow.jonascsantos.com/)
 
-## Type Support for `.vue` Imports in TS
+MeowAPI | [https://meowapi.jonascsantos.com/cat](https://meowapi.jonascsantos.com/cat)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Figma
 
-## Customize configuration
+[Design](https://www.figma.com/design/wCSiNRrmqABQHtnFbIq8aD/MeowAPI?node-id=1203-39&t=2OlqP3clwAzoHYv6-1)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[Prototype](https://www.figma.com/proto/wCSiNRrmqABQHtnFbIq8aD/MeowAPI?node-id=1208-3166&t=i1TfuTf7YWOZCT9q-1&scaling=scale-down&content-scaling=fixed&page-id=1203%3A39&starting-point-node-id=1208%3A3166&show-proto-sidebar=1)
 
-## Project Setup
+## Technologies  
 
-```sh
-npm install
-```
+* Vue.js
+* Python
+* Flask
+* Azure
+* Figma
+* 
+## Running locally
 
-### Compile and Hot-Reload for Development
+### Vue App
 
+Dev environment
 ```sh
 npm run dev
 ```
-
-### Type-Check, Compile and Minify for Production
-
+or
 ```sh
-npm run build
+vite --host
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
+### Python Flask API
 ```sh
-npm run test:unit
+docker-compose build
+docker-compose up
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+## Example URLs
 
-```sh
-npm run test:e2e:dev
-```
+Blur:
+https://meowapi.jonascsantos.com/cat?filter=blur&blur=20
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
+Mono:
+https://meowapi.jonascsantos.com/cat?filter=mono
 
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+Sepia:
+https://meowapi.jonascsantos.com/cat?filter=sepia
 
-```sh
-npm run build
-npm run test:e2e
-```
+Negative:
+https://meowapi.jonascsantos.com/cat?filter=negative
 
-### Lint with [ESLint](https://eslint.org/)
+Paint:
+https://meowapi.jonascsantos.com/cat?filter=paint&r=7&g=12&b=50
 
-```sh
-npm run lint
-```
+Pixel:
+https://meowapi.jonascsantos.com/cat?filter=pixel&pixel=10
+
+
+
+
