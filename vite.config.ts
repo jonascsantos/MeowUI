@@ -6,8 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/REPONAME/',
   plugins: [vue(), vueDevTools()],
+  base: '/MeowUI',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
