@@ -117,40 +117,39 @@ watch([width, height], ([newWidth, newHeight]) => {
       </template>
       Custom
     </OptionButton>
-
-    <div v-if="showCustomSize" class="flex gap-4 sm:max-w-full md:max-w-[400px]">
-      <div class="w-50">
-        <label for="Width" class="block text-sm leading-6 text-gray-900 font-bold">Width</label>
-        <div class="relative mt-2 rounded-md shadow-sm">
-          <input
-            v-model="width"
-            type="number"
-            name="Width"
-            min="0"
-            max="3000"
-            pattern="[0-9]{4}"
-            id="Width"
-            class="block w-full outline-none rounded-md border-0 py-1.5 pl-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-fuchsia-700 sm:text-sm sm:leading-6"
-            placeholder="1280"
-          />
-        </div>
+  </div>
+  <div v-if="showCustomSize" class="flex gap-4 sm:max-w-full md:max-w-[400px]">
+    <div class="w-50">
+      <label for="Width" class="block text-sm leading-6 text-gray-900 font-bold">Width</label>
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <input
+          v-model="width"
+          type="number"
+          name="Width"
+          min="0"
+          max="3000"
+          pattern="[0-9]{4}"
+          id="Width"
+          class="block w-full outline-none rounded-md border-0 py-1.5 pl-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-fuchsia-700 sm:text-sm sm:leading-6"
+          placeholder="1280"
+        />
       </div>
+    </div>
 
-      <div class="w-50">
-        <label for="Height" class="block text-sm leading-6 text-gray-900 font-bold">Height</label>
-        <div class="relative mt-2 rounded-md shadow-sm">
-          <input
-            v-model="height"
-            type="number"
-            name="Height"
-            min="0"
-            max="3000"
-            pattern="[0-9]{4}"
-            id="Height"
-            class="block w-full outline-none rounded-md border-0 py-1.5 pl-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-fuchsia-700 sm:text-sm sm:leading-6"
-            placeholder="720"
-          />
-        </div>
+    <div class="w-50">
+      <label for="Height" class="block text-sm leading-6 text-gray-900 font-bold">Height</label>
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <input
+          v-model="height"
+          type="number"
+          name="Height"
+          min="0"
+          max="3000"
+          pattern="[0-9]{4}"
+          id="Height"
+          class="block w-full outline-none rounded-md border-0 py-1.5 pl-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-fuchsia-700 sm:text-sm sm:leading-6"
+          placeholder="720"
+        />
       </div>
     </div>
   </div>
