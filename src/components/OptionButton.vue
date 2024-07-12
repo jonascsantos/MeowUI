@@ -24,7 +24,7 @@ const selectFilter = () => {
 <template>
   <div
     :class="[isSelected ? 'border-fuchsia-700 bg-fuchsia-50' : 'border-gray-300']"
-    class="border-4 w-[100px] h-[120px] rounded-lg flex flex-col p-4 gap-2.5 items-center"
+    class="cursor-pointer border-4 w-[100px] h-[120px] rounded-lg flex flex-col p-4 gap-2.5 items-center"
     @click="selectFilter"
   >
     <div class="font-medium" :class="[isSelected ? 'text-fuchsia-700' : 'text-gray-400']">
