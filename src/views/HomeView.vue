@@ -21,8 +21,6 @@ const fetchImage = () => {
   if (imageRef.value) {
     imageRef.value.src = fetchUrl.value
   }
-
-  console.log(fetchUrl.value.toString())
 }
 
 const hideImage = () => {
